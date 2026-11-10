@@ -217,6 +217,17 @@ Para criar o banco, execute o script no MySQL/MariaDB (por linha de comando ou i
 mysql -u <usuario> -p < schema.sql
 ```
 
+## Código do banco de dados
+
+<details>
+<summary><b>Ver schema.sql completo</b></summary>
+
+```sql
+-- cole aqui o conteúdo inteiro do schema.sql
+```
+
+</details>
+
 ### Padrão de nomes do banco
 
 - Tabelas em MAIÚSCULAS e no singular.
