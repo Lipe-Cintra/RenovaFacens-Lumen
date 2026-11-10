@@ -27,7 +27,7 @@ Esta etapa do projeto concentrou-se na modelagem e na estruturação lógica do 
 - **Protótipo de interface (UI/UX):** focado no usuário, priorizando a intuitividade, a rapidez no aceite das missões e a clareza no extrato de pontos e recompensas. Cobre o fluxo desde a visualização da missão pelo usuário até a confirmação de presença pelo mentor.
 - **Banco de dados:** modelagem relacional e script de criação (`schema.sql`).
 
-Protótipo no Figma: [adicionar link do protótipo aqui]
+Protótipo no Figma: (https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=2-35&m=dev&t=75uhkyxE1lH0j8PY-1)
 
 ## Telas do protótipo
 
