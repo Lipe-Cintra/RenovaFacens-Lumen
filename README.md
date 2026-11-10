@@ -238,5 +238,5 @@ mysql -u <usuario> -p < schema.sql
 | Enzo Valentim Garcia | Product Owner, Analista de Requisitos |
 | Henrique Nóbrega | Analista de Suporte, Analista de Requisitos |
 | Luis Filipe Gonçalves Cintra | Desenvolvedor Back-end, Engenheiro de Teste |
-| Naiara Alves Fioravanti Nunes (líder) | Scrum Master, Desenvolvedor Front-end, Designer UI/UX, Gestora de Projetos |
+| Naiara Alves Fioravanti Nunes | Scrum Master, Desenvolvedor Front-end, Designer UI/UX, Gestora de Projetos |
 | Victor de Moraes Leite | Desenvolvedor Back-end, Engenheiro de Teste |
