@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renova Facens | Transforme boas ações em recompensas reais</title>
+  <meta name="description"
+    content="Aplicativo que incentiva a participação em ações sociais e ambientais na Facens por meio de missões, presença validada, pontos e recompensas.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Phosphor / Lucide Icons via Feather/FontAwesome or SVG -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            // Paleta solicitada: Azuis (claros a médios), beges, amarelos claros, roxos (claros a médios)
+            renova: {
+              blue: {
+                50: '#F0F7FF',
+                100: '#E0EFFF',
+                200: '#BAE0FD',
+                300: '#7DC4FA',
+                400: '#38A3F6',
+                500: '#1585E2',
+                600: '#0267C1',
+                700: '#03529E',
+              },
+              purple: {
+                50: '#F5F3FF',
+                100: '#EDE9FE',
+                200: '#DDD6FE',
+                300: '#C4B5FD',
+                400: '#A78BFA',
+                500: '#8B5CF6',
+                600: '#7C3AED',
+              },
+              beige: {
+                50: '#FAF8F5',
+                100: '#F5F0E8',
+                200: '#EAE1D2',
+                300: '#DDD0BC',
+                400: '#C6B49A',
+              },
+              yellow: {
+                50: '#FEFCE8',
+                100: '#FEF9C3',
+                200: '#FEF08A',
+                300: '#FDE047',
+                400: '#FACC15',
+              }
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 30px -5px rgba(2, 103, 193, 0.08), 0 4px 12px -2px rgba(2, 103, 193, 0.04)',
+            'glow-blue': '0 0 25px rgba(56, 163, 246, 0.35)',
+            'glow-purple': '0 0 25px rgba(139, 92, 246, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos personalizados e animações suaves */
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image:
+        linear-gradient(to right, rgba(2, 103, 193, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(2, 103, 193, 0.05) 1px, transparent 1px);
+    }
+
+    .blob-shape {
+      border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+      transition: all 4s ease-in-out;
+    }
+
+    /* Scrollbar estilizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAF8F5;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #C4B5FD;
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7DC4FA;
+    }
+  </style>
+</head>
+
+<body class="bg-renova-beige-50 text-slate-800 antialiased selection:bg-renova-blue-200 selection:text-renova-blue-700">
+
+  <!-- ========================================================
+       HEADER / NAVBAR
+  ======================================================== -->
+  <header
+    class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-renova-beige-200 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div
+          class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-renova-blue-600 to-renova-purple-500 flex items-center justify-center text-white shadow-md shadow-renova-blue-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-seedling text-xl"></i>
+        </div>
+        <div>
+          <span
+            class="text-2xl font-extrabold tracking-tight bg-gradient-to-r from-renova-blue-700 via-renova-purple-600 to-renova-blue-600 bg-clip-text text-transparent">
+            Renova
+          </span>
+          <span class="text-xs font-bold text-renova-purple-600 block -mt-1 tracking-wider uppercase">Facens</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#problema" class="hover:text-renova-blue-600 transition-colors">O Desafio</a>
+        <a href="#como-funciona" class="hover:text-renova-blue-600 transition-colors">Como Funciona</a>
+        <a href="#perfis" class="hover:text-renova-blue-600 transition-colors">Quem Usa</a>
+        <a href="#diferenciais" class="hover:text-renova-blue-600 transition-colors">Diferenciais</a>
+        <a href="#app-preview" class="hover:text-renova-blue-600 transition-colors">O App</a>
+        <a href="#equipe" class="hover:text-renova-blue-600 transition-colors">Equipe</a>
+      </nav>
+
+      <!-- CTA Buttons -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a href="#app-preview"
+          class="text-xs lg:text-sm font-semibold text-slate-600 hover:text-renova-blue-600 px-3 py-2 transition-colors">
+          Ver Telas
+        </a>
+        <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+          target="_blank" rel="noopener noreferrer"
+          class="bg-gradient-to-r from-renova-blue-600 to-renova-purple-600 hover:from-renova-blue-700 hover:to-renova-purple-700 text-white font-semibold text-xs lg:text-sm px-5 py-2.5 rounded-full shadow-md shadow-renova-blue-500/25 hover:shadow-lg hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center gap-2">
+          <i class="fa-brands fa-figma"></i> Protótipo Figma
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobileMenuBtn" class="md:hidden text-slate-600 hover:text-renova-blue-600 p-2 focus:outline-none"
+        aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu"
+      class="hidden md:hidden bg-white/95 border-b border-renova-beige-200 px-6 py-5 space-y-4 shadow-xl">
+      <a href="#problema" class="block font-medium text-slate-700 hover:text-renova-blue-600">O Desafio</a>
+      <a href="#como-funciona" class="block font-medium text-slate-700 hover:text-renova-blue-600">Como Funciona</a>
+      <a href="#perfis" class="block font-medium text-slate-700 hover:text-renova-blue-600">Quem Usa (3 Perfis)</a>
+      <a href="#diferenciais" class="block font-medium text-slate-700 hover:text-renova-blue-600">Diferenciais</a>
+      <a href="#app-preview" class="block font-medium text-slate-700 hover:text-renova-blue-600">O App</a>
+      <a href="#equipe" class="block font-medium text-slate-700 hover:text-renova-blue-600">Equipe</a>
+      <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+        <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+          target="_blank" rel="noopener noreferrer"
+          class="w-full text-center bg-gradient-to-r from-renova-blue-600 to-renova-purple-600 text-white font-semibold py-2.5 rounded-xl shadow-md flex items-center justify-center gap-2">
+          <i class="fa-brands fa-figma"></i> Abrir Protótipo no Figma
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       HERO SECTION
+  ======================================================== -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-32 bg-grid-pattern">
+
+    <!-- Efeitos Decorativos de Luz e Fundo -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-renova-blue-300/30 rounded-full blur-3xl pointer-events-none">
+    </div>
+    <div class="absolute top-1/3 -right-32 w-96 h-96 bg-renova-purple-300/30 rounded-full blur-3xl pointer-events-none">
+    </div>
+    <div class="absolute bottom-0 left-1/4 w-80 h-80 bg-renova-yellow-200/40 rounded-full blur-3xl pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+        <!-- Coluna Esquerda: Texto & Chamadas -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+
+          <!-- Badge Superior -->
+          <div
+            class="inline-flex items-center gap-2 bg-renova-beige-100 border border-renova-beige-300/70 text-renova-blue-700 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full shadow-sm">
+            <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Ações Sociais & Ambientais Gamificadas</span>
+            <span class="text-renova-beige-400">|</span>
+            <span class="text-renova-purple-600 font-bold">UNIFACENS</span>
+          </div>
+
+          <!-- Título Principal -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            Transforme <span
+              class="bg-gradient-to-r from-renova-blue-600 via-renova-purple-600 to-renova-blue-500 bg-clip-text text-transparent">boas
+              ações</span> em recompensas reais.
+          </h1>
+
+          <!-- Subtítulo -->
+          <p
+            class="text-base sm:text-lg lg:text-xl text-slate-600 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            Conectamos a comunidade acadêmica em missões solidárias e ecológicas. Participe, tenha sua presença validada
+            com segurança e troque pontos por horas complementares e benefícios exclusivos com parceiros locais.
+          </p>
+
+          <!-- Badges de Benefícios Rápidos -->
+          <div
+            class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 text-xs sm:text-sm text-slate-600 font-medium">
+            <div
+              class="flex items-center gap-2 bg-white/80 border border-renova-beige-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <i class="fa-solid fa-qrcode text-renova-blue-600"></i>
+              <span>Validação Antifraude</span>
+            </div>
+            <div
+              class="flex items-center gap-2 bg-white/80 border border-renova-beige-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <i class="fa-solid fa-clock text-renova-purple-600"></i>
+              <span>Horas Complementares</span>
+            </div>
+            <div
+              class="flex items-center gap-2 bg-white/80 border border-renova-beige-200 px-3 py-1.5 rounded-lg shadow-xs">
+              <i class="fa-solid fa-gift text-amber-500"></i>
+              <span>Prêmios no Comércio Local</span>
+            </div>
+          </div>
+
+          <!-- Botões de Ação do Hero -->
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#app-preview"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-renova-blue-600 to-renova-purple-600 hover:from-renova-blue-700 hover:to-renova-purple-700 text-white font-bold text-base px-8 py-4 rounded-2xl shadow-lg shadow-renova-blue-600/30 hover:scale-[1.02] active:scale-95 transition-all">
+              <i class="fa-solid fa-mobile-screen"></i>
+              <span>Conhecer o Protótipo</span>
+            </a>
+            <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+              target="_blank" rel="noopener noreferrer"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-renova-beige-100 text-slate-700 font-semibold text-base px-6 py-4 rounded-2xl border border-renova-beige-300 shadow-sm hover:scale-[1.02] active:scale-95 transition-all">
+              <i class="fa-brands fa-figma text-renova-purple-600"></i>
+              <span>Ver no Figma</span>
+            </a>
+          </div>
+
+          <!-- Métricas de Impacto no Hero -->
+          <div class="pt-8 border-t border-renova-beige-200/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-renova-blue-700">+4.000</p>
+              <p class="text-xs text-slate-500 font-medium">Alunos na Facens</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-renova-purple-600">100%</p>
+              <p class="text-xs text-slate-500 font-medium">Presença Confiável</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold text-amber-600">ESG</p>
+              <p class="text-xs text-slate-500 font-medium">Foco Socioambiental</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Coluna Direita: Mockup Dinâmico com Telas Reais do Figma -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center relative">
+
+          <!-- Elemento decorativo atrás do celular -->
+          <div
+            class="absolute -inset-4 bg-gradient-to-r from-renova-blue-400 to-renova-purple-400 rounded-[50px] opacity-20 blur-xl pointer-events-none">
+          </div>
+
+          <!-- Seletor Rápido de Telas do Protótipo -->
+          <div class="relative z-10 mb-4 flex items-center justify-center gap-1.5 bg-white/90 backdrop-blur-md p-1.5 rounded-full border border-renova-beige-300 shadow-sm">
+            <button onclick="setHeroScreen('feed')" id="hero-btn-feed"
+              class="hero-screen-btn px-3 py-1 text-xs font-bold rounded-full bg-renova-blue-600 text-white shadow-sm transition-all">
+              Feed
+            </button>
+            <button onclick="setHeroScreen('missoes')" id="hero-btn-missoes"
+              class="hero-screen-btn px-3 py-1 text-xs font-bold rounded-full text-slate-600 hover:text-renova-blue-600 transition-all">
+              Missões
+            </button>
+            <button onclick="setHeroScreen('mentor')" id="hero-btn-mentor"
+              class="hero-screen-btn px-3 py-1 text-xs font-bold rounded-full text-slate-600 hover:text-renova-blue-600 transition-all">
+              Painel Mentor
+            </button>
+            <button onclick="setHeroScreen('recompensas')" id="hero-btn-recompensas"
+              class="hero-screen-btn px-3 py-1 text-xs font-bold rounded-full text-slate-600 hover:text-renova-blue-600 transition-all">
+              Prêmios
+            </button>
+          </div>
+
+          <!-- Mockup Smartphone com Design Oficial -->
+          <div
+            class="relative w-[310px] sm:w-[335px] bg-slate-900 p-3 sm:p-3.5 rounded-[50px] shadow-2xl shadow-renova-blue-700/25 border-4 border-slate-800 transition-all">
+
+            <!-- Dynamic Island / Câmera Frontal -->
+            <div class="w-28 h-4.5 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+              <div class="w-2.5 h-2.5 rounded-full bg-slate-950 mr-2"></div>
+              <div class="w-2 h-2 rounded-full bg-slate-700"></div>
+            </div>
+
+            <!-- Tela do Celular com Imagem Real do Figma -->
+            <div
+              class="relative bg-slate-950 rounded-[38px] overflow-hidden border border-slate-800 h-[560px] sm:h-[600px] group cursor-pointer shadow-inner"
+              onclick="openImageModal(document.getElementById('heroPhoneImg').src, document.getElementById('heroScreenLabel').innerText)">
+
+              <img id="heroPhoneImg" src="assets/tela-feed.jpg" alt="Tela Renova Facens Protótipo Figma"
+                class="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]">
+
+              <!-- Selo Flutuante Figma -->
+              <div class="absolute top-3 left-3 bg-slate-900/85 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/20 shadow flex items-center gap-1.5">
+                <i class="fa-brands fa-figma text-renova-purple-400"></i>
+                <span id="heroScreenLabel">Feed de Impacto</span>
+              </div>
+
+              <!-- Overlay Hover com Instrução de Clique -->
+              <div
+                class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span
+                  class="bg-white/95 text-slate-900 text-xs font-bold px-4 py-2 rounded-full backdrop-blur-md shadow-xl flex items-center gap-1.5 transform translate-y-2 group-hover:translate-y-0 transition-all">
+                  <i class="fa-solid fa-magnifying-glass-plus text-renova-blue-600"></i> Clique para ampliar
+                </span>
+              </div>
+
+            </div>
+
+            <!-- Botão Home Indicator na base -->
+            <div class="w-32 h-1 bg-slate-700 rounded-full mx-auto mt-2"></div>
+
+          </div>
+
+          <!-- Legenda de Interatividade -->
+          <p class="text-[11px] text-slate-500 mt-3 text-center flex items-center gap-1.5">
+            <i class="fa-solid fa-hand-pointer text-renova-blue-600"></i>
+            <span>Clique nos botões acima para alternar as telas ou no celular para ampliar</span>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: O PROBLEMA & A OPORTUNIDADE
+  ======================================================== -->
+  <section id="problema" class="py-20 bg-white border-y border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Cabeçalho da Seção -->
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-blue-600 bg-renova-blue-50 px-3 py-1 rounded-full border border-renova-blue-200">
+          O Desafio Real
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Ações sociais existem, mas faltava conexão e reconhecimento.
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          A UNIFACENS e o LIS (Laboratório de Inovação Social) já promovem iniciativas fantásticas — desde o descarte
+          ecológico até a arrecadação de doações. Porém, dois gargalos persistiam:
+        </p>
+      </div>
+
+      <!-- Grid Comparativo: Desafio vs Solução Renova -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+
+        <!-- Card 1: O Cenário Anterior -->
+        <div class="bg-rose-50/50 border border-rose-200/70 rounded-3xl p-8 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">As barreiras de adesão atuais</h3>
+            <ul class="space-y-3 text-slate-600 text-sm">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-500 mt-1"></i>
+                <span><strong>Falta de alcance contínuo:</strong> Muitas pessoas só descobrem as ações depois que elas
+                  já aconteceram.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-500 mt-1"></i>
+                <span><strong>Incerteza na presença:</strong> Listas em papel e formulários manuais tornam difícil
+                  comprovar com exatidão quem realmente participou.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark text-rose-500 mt-1"></i>
+                <span><strong>Pouco incentivo tangível:</strong> O estudante quer ajudar, mas também necessita de horas
+                  complementares e estímulos extras em sua rotina acadêmica.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-4 border-t border-rose-200/50 text-xs text-rose-700 font-semibold">
+            Resultado: Ações essenciais com menos voluntários do que o potencial disponível.
+          </div>
+        </div>
+
+        <!-- Card 2: A Solução com o Renova Facens -->
+        <div
+          class="bg-gradient-to-br from-renova-blue-50 to-renova-purple-50 border-2 border-renova-blue-300 rounded-3xl p-8 flex flex-col justify-between shadow-soft">
+          <div class="space-y-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-renova-blue-600 to-renova-purple-600 text-white flex items-center justify-center text-xl font-bold shadow-md">
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">A Resposta do Renova Facens</h3>
+            <ul class="space-y-3 text-slate-700 text-sm">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                <span><strong>Hub Centralizado de Missões:</strong> Um feed dinâmico para o aluno escolher ações
+                  alinhadas com sua disponibilidade e interesses.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                <span><strong>Validação Justa & Antifraude:</strong> Presença confirmada in loco pelo Embaixador da
+                  missão através do app.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check text-emerald-600 mt-1"></i>
+                <span><strong>Recompensas & Horas Garantidas:</strong> Pontos que viram prêmios no comércio parceiro e
+                  horas acadêmicas computadas com segurança.</span>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="mt-6 pt-4 border-t border-renova-blue-200/80 text-xs text-renova-blue-800 font-bold flex items-center justify-between">
+            <span>✨ Comunidade engajada e valorizada</span>
+            <span class="text-renova-purple-700">Ecossistema Win-Win</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: COMO FUNCIONA (3 PASSOS)
+  ======================================================== -->
+  <section id="como-funciona" class="py-20 bg-renova-beige-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-purple-600 bg-renova-purple-100 px-3 py-1 rounded-full border border-renova-purple-200">
+          Simplicidade & Eficiência
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Como funciona em 3 passos
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Sem burocracia: veja como é fácil participar de uma missão e colher os frutos do seu impacto positivo.
+        </p>
+      </div>
+
+      <!-- 3 Passos Interativos -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+
+        <!-- Linha conectora no Desktop -->
+        <div
+          class="hidden md:block absolute top-1/2 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-renova-blue-300 via-renova-purple-300 to-renova-yellow-300 -translate-y-12 z-0">
+        </div>
+
+        <!-- Passo 1 -->
+        <div
+          class="relative z-10 bg-white rounded-3xl p-8 border border-renova-beige-200 shadow-soft hover:-translate-y-2 transition-all flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 rounded-3xl bg-renova-blue-100 text-renova-blue-600 flex items-center justify-center text-2xl font-extrabold mb-6 shadow-sm border border-renova-blue-200">
+            <i class="fa-solid fa-hand-pointer"></i>
+          </div>
+          <span class="text-xs font-bold bg-renova-blue-50 text-renova-blue-700 px-2.5 py-0.5 rounded-full mb-3">Passo
+            1</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Escolha uma Missão</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Abra o app Renova, navegue pelas ações socioambientais cadastradas e se inscreva naquelas que combinam com
+            você.
+          </p>
+        </div>
+
+        <!-- Passo 2 -->
+        <div
+          class="relative z-10 bg-white rounded-3xl p-8 border border-renova-beige-200 shadow-soft hover:-translate-y-2 transition-all flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 rounded-3xl bg-renova-purple-100 text-renova-purple-600 flex items-center justify-center text-2xl font-extrabold mb-6 shadow-sm border border-renova-purple-200">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <span
+            class="text-xs font-bold bg-renova-purple-50 text-renova-purple-700 px-2.5 py-0.5 rounded-full mb-3">Passo
+            2</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Participe e Valide</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Compareça à ação! No local, o Embaixador responsável valida a lista de presença direto pelo aplicativo com
+            garantia antifraude.
+          </p>
+        </div>
+
+        <!-- Passo 3 -->
+        <div
+          class="relative z-10 bg-white rounded-3xl p-8 border border-renova-beige-200 shadow-soft hover:-translate-y-2 transition-all flex flex-col items-center text-center">
+          <div
+            class="w-16 h-16 rounded-3xl bg-renova-yellow-100 text-amber-600 flex items-center justify-center text-2xl font-extrabold mb-6 shadow-sm border border-renova-yellow-200">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <span class="text-xs font-bold bg-amber-50 text-amber-700 px-2.5 py-0.5 rounded-full mb-3">Passo 3</span>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Ganhe e Resgate</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Seus pontos entram no extrato em tempo real. Troque por recompensas em empresas parceiras ou convalide suas
+            horas acadêmicas.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: QUEM USA (OS 3 PERFIS)
+  ======================================================== -->
+  <section id="perfis" class="py-20 bg-white border-t border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-blue-600 bg-renova-blue-50 px-3 py-1 rounded-full border border-renova-blue-200">
+          Um Ecossistema Integrado
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Feito sob medida para 3 perfis
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          O Renova Facens conecta quem quer ajudar, quem coordena as ações e quem apoia o desenvolvimento social e
+          local.
+        </p>
+      </div>
+
+      <!-- Grid com 3 Perfis -->
+      <div class="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- Perfil 1: Estudante -->
+        <div
+          class="bg-gradient-to-b from-renova-blue-50/60 to-white rounded-3xl p-8 border-2 border-renova-blue-200 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-renova-blue-600 text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <span class="text-xs font-extrabold bg-renova-blue-100 text-renova-blue-800 px-3 py-1 rounded-full">
+                Público Principal
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Estudante</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+              O coração do projeto. O estudante ganha voz ativa nas causas da faculdade e da cidade enquanto enriquece
+              seu histórico acadêmico.
+            </p>
+
+            <div class="space-y-3 pt-4 border-t border-renova-blue-100 text-sm text-slate-700">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-blue-600 text-xs"></i>
+                <span>Escolhe missões que se encaixam na sua rotina</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-blue-600 text-xs"></i>
+                <span>Acumula pontos com total transparência</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-blue-600 text-xs"></i>
+                <span>Resgata prêmios reais e horas complementares</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-renova-blue-100 flex items-center justify-between">
+              <button onclick="changeScreen('missoes'); document.getElementById('app-preview').scrollIntoView({behavior: 'smooth'})"
+                class="text-xs font-bold text-renova-blue-600 hover:text-renova-blue-800 flex items-center gap-1.5 transition-colors">
+                <span>Ver telas do Estudante</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <span class="text-[10px] font-semibold bg-renova-blue-100/80 text-renova-blue-800 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <i class="fa-brands fa-figma text-[9px]"></i> Protótipo
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perfil 2: Embaixador / Mentor -->
+        <div
+          class="bg-gradient-to-b from-renova-purple-50/60 to-white rounded-3xl p-8 border-2 border-renova-purple-200 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-renova-purple-600 text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-user-tie"></i>
+              </div>
+              <span class="text-xs font-extrabold bg-renova-purple-100 text-renova-purple-800 px-3 py-1 rounded-full">
+                Líder da Missão
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Mentor / Embaixador</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+              Representantes de projetos, professores ou alunos líderes responsáveis por criar a ação e assegurar a
+              qualidade do evento.
+            </p>
+
+            <div class="space-y-3 pt-4 border-t border-renova-purple-100 text-sm text-slate-700">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-purple-600 text-xs"></i>
+                <span>Cadastra e gerencia novas ações socioambientais</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-purple-600 text-xs"></i>
+                <span>Valida a presença presencial dos participantes</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-renova-purple-600 text-xs"></i>
+                <span>Desenvolve habilidades práticas de liderança e ESG</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-renova-purple-100 flex items-center justify-between">
+              <button onclick="changeScreen('mentor'); document.getElementById('app-preview').scrollIntoView({behavior: 'smooth'})"
+                class="text-xs font-bold text-renova-purple-600 hover:text-renova-purple-800 flex items-center gap-1.5 transition-colors">
+                <span>Ver Painel do Mentor</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <span class="text-[10px] font-semibold bg-renova-purple-100/80 text-renova-purple-800 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <i class="fa-brands fa-figma text-[9px]"></i> Protótipo
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Perfil 3: Apoiador -->
+        <div
+          class="bg-gradient-to-b from-renova-yellow-50/60 to-white rounded-3xl p-8 border-2 border-renova-yellow-300 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div
+                class="w-14 h-14 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-2xl shadow-md group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <span class="text-xs font-extrabold bg-renova-yellow-100 text-amber-900 px-3 py-1 rounded-full">
+                Comércio & Empresas
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">Apoiador</h3>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+              Empresas, comércios locais e cantinas que oferecem prêmios e descontos em troca de responsabilidade social
+              e novos clientes.
+            </p>
+
+            <div class="space-y-3 pt-4 border-t border-renova-yellow-200 text-sm text-slate-700">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-amber-600 text-xs"></i>
+                <span>Visibilidade direta para mais de 4 mil universitários</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-amber-600 text-xs"></i>
+                <span>Fortalecimento da marca com posicionamento ESG real</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-amber-600 text-xs"></i>
+                <span>Atração de clientes fiéis para o seu estabelecimento</span>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-renova-yellow-200 flex items-center justify-between">
+              <button onclick="changeScreen('rewards'); document.getElementById('app-preview').scrollIntoView({behavior: 'smooth'})"
+                class="text-xs font-bold text-amber-700 hover:text-amber-900 flex items-center gap-1.5 transition-colors">
+                <span>Ver Loja de Prêmios</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <span class="text-[10px] font-semibold bg-renova-yellow-100 text-amber-900 px-2 py-0.5 rounded-full flex items-center gap-1">
+                <i class="fa-brands fa-figma text-[9px]"></i> Protótipo
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: DIFERENCIAIS DO RENOVA
+  ======================================================== -->
+  <section id="diferenciais" class="py-20 bg-renova-beige-100/60 border-t border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-blue-700 bg-white px-3 py-1 rounded-full border border-renova-beige-300">
+          Por que somos diferentes
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Projetado para gerar confiança e impacto duradouro
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Muito além de um quadro de avisos: construímos uma infraestrutura segura e atraente para o engajamento
+          universitário.
+        </p>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Diferencial 1 -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="w-12 h-12 rounded-xl bg-renova-blue-100 text-renova-blue-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Validação Confiável</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Elimina fraudes de presença. Somente quem compareceu e foi validado pelo embaixador recebe os pontos da
+            ação.
+          </p>
+        </div>
+
+        <!-- Diferencial 2 -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="w-12 h-12 rounded-xl bg-renova-yellow-100 text-amber-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-gift"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Recompensas Reais</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Nada de pontuação sem utilidade: você troca seus pontos por produtos, lanches e descontos no comércio local
+            de Sorocaba.
+          </p>
+        </div>
+
+        <!-- Diferencial 3 -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="w-12 h-12 rounded-xl bg-renova-purple-100 text-renova-purple-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Gamificação Clara</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            Extrato detalhado de pontos, histórico de participações, níveis de evolução e horas complementares prontas
+            para emissão.
+          </p>
+        </div>
+
+        <!-- Diferencial 4 -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm hover:shadow-md transition-shadow">
+          <div
+            class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4">
+            <i class="fa-solid fa-arrows-spin"></i>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Valor para os Dois Lados</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            As instituições ganham voluntários dedicados e as empresas ganham visibilidade qualificada com
+            responsabilidade social.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: TELAS DO APP (SHOWCASE INTERATIVO DO FIGMA)
+  ======================================================== -->
+  <section id="app-preview" class="py-20 bg-white border-t border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-purple-600 bg-renova-purple-50 px-3 py-1 rounded-full border border-renova-purple-200">
+          Design Oficial do Figma
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Conheça as telas do protótipo Renova
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Navegue pelas 8 telas oficiais desenvolvidas no Figma para estudantes, mentores e parceiros. Clique em qualquer tela para vê-la em alta resolução.
+        </p>
+      </div>
+
+      <!-- Abas de Navegação das 8 Telas -->
+      <div class="mt-12 flex flex-wrap justify-center gap-2.5" id="screenTabs">
+        <button onclick="changeScreen('feed')" id="tab-feed"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-blue-600 text-white shadow-md transition-all">
+          <i class="fa-solid fa-camera-retro mr-1.5"></i> Feed de Impacto
+        </button>
+        <button onclick="changeScreen('missoes')" id="tab-missoes"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-list-check mr-1.5"></i> Missões & Ações
+        </button>
+        <button onclick="changeScreen('mentor')" id="tab-mentor"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-chalkboard-user mr-1.5"></i> Painel do Mentor
+        </button>
+        <button onclick="changeScreen('presenca')" id="tab-presenca"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-clipboard-check mr-1.5"></i> Lista de Presença
+        </button>
+        <button onclick="changeScreen('rewards')" id="tab-rewards"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-gift mr-1.5"></i> Loja de Recompensas
+        </button>
+        <button onclick="changeScreen('perfil')" id="tab-perfil"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-user-astronaut mr-1.5"></i> Perfil & Resgates
+        </button>
+        <button onclick="changeScreen('login')" id="tab-login"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-right-to-bracket mr-1.5"></i> Login
+        </button>
+        <button onclick="changeScreen('cadastro')" id="tab-cadastro"
+          class="screen-tab px-4 py-2 rounded-full font-bold text-xs sm:text-sm bg-renova-beige-100 text-slate-700 hover:bg-renova-beige-200 transition-all">
+          <i class="fa-solid fa-user-plus mr-1.5"></i> Cadastro
+        </button>
+      </div>
+
+      <!-- Área de Visualização da Tela -->
+      <div
+        class="mt-10 max-w-5xl mx-auto bg-renova-beige-50 rounded-3xl p-6 sm:p-10 border border-renova-beige-200 shadow-soft">
+
+        <!-- 1. Conteúdo Tela: Feed de Impacto -->
+        <div id="content-feed" class="screen-content grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-renova-blue-100 text-renova-blue-800 px-3 py-1 rounded-full">
+              Perfil: Usuário / Estudante
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Feed de Impacto & Comunidade</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O coração social do aplicativo. Os estudantes publicam os registros das ações voluntárias concluídas (com fotos, depoimentos e métricas de impacto), curtem postagens de colegas e veem seu saldo de pontos atualizado no topo.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-heart text-rose-500 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Engajamento Social:</strong> Postagens com fotos reais das ações realizadas (ex: 3 kg de pilhas entregues, mutirão com 200 mudas plantadas) e contadores de curtidas.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-coins text-amber-500 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Saldo Instantâneo:</strong> Badge visível no cabeçalho com pontuação acumulada (120 pts) e acesso rápido à conta.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-compass text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Navegação Fluida:</strong> Barra de navegação inferior com acesso imediato a Feed, Missões, Recompensas e Perfil.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-feed.jpg', 'Feed de Impacto — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-feed.jpg', 'Feed de Impacto — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-feed.jpg" alt="Tela Feed de Impacto Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Conteúdo Tela: Missões -->
+        <div id="content-missoes" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+              Perfil: Usuário / Estudante
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Catálogo de Missões & Ações</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O catálogo de oportunidades em que os universitários exploram todas as missões cadastradas no campus. Cada missão possui data, horário, orientações práticas, mentor responsável e pontuação concedida.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-clock text-emerald-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Status em Tempo Real:</strong> Identificação visual de ações <span class="text-emerald-700 font-bold">Em andamento</span> (com contagem regressiva) ou <span class="text-blue-700 font-bold">Agendada</span>.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-users text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Avatares de Inscritos:</strong> Visualize quantos e quais colegas já estão confirmados na ação (ex: 14 inscritos).
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-hand-holding-hand text-renova-purple-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Inscrição ou Autorização:</strong> Botão "Participar" direto ou solicitação especial caso a missão exija aprovação prévia do mentor.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-missoes.jpg', 'Catálogo de Missões — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-missoes.jpg', 'Catálogo de Missões — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-missoes.jpg" alt="Tela Missões Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Conteúdo Tela: Painel do Mentor -->
+        <div id="content-mentor" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-renova-purple-100 text-renova-purple-800 px-3 py-1 rounded-full">
+              Perfil: Mentor / Embaixador
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Painel de Gestão do Mentor</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O cockpit operacional para coordenadores de iniciativas socioambientais. Permite criar novas missões com facilidade, acompanhar os números de engajamento do campus e deliberar sobre pedidos especiais de estudantes.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-chart-pie text-renova-purple-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Métricas Operacionais:</strong> Cards com contagem de missões criadas (5), total de voluntários inscritos (56) e solicitações pendentes (1).
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-user-clock text-amber-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Aprovação Fora do Prazo:</strong> Fluxo para aceitar ou recusar pedidos de alunos que desejam entrar na ação de última hora.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-sliders text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Ações Rápidas:</strong> Acesso direto para abrir lista de presença, editar detalhes da missão ou efetuar cancelamentos com aviso aos alunos.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-painel-mentor.jpg', 'Painel do Mentor — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-painel-mentor.jpg', 'Painel do Mentor — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-painel-mentor.jpg" alt="Tela Painel do Mentor Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Conteúdo Tela: Lista de Presença -->
+        <div id="content-presenca" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">
+              Perfil: Mentor / Embaixador
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Lista de Presença & Validação</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Elimina pranchetas de papel e listas manuais. O mentor confere nominalmente os estudantes presentes no local do evento. Cada confirmação credita automaticamente os pontos combinados (+100 pts) na hora, com total auditabilidade.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-circle-check text-emerald-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Crédito Automático:</strong> "Cada confirmação libera +100 pts uma única vez", garantindo regras de negócio rígidas contra fraudes.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-users-viewfinder text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Painel com Totais:</strong> 14 inscritos, 9 presentes já validados e 900 pontos distribuídos em tempo real.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-user-check text-renova-purple-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Lista Nominal com Status:</strong> Alunos com marcação verde <span class="text-emerald-600 font-bold">✓ Presente</span> ou botão interativo <span class="text-blue-900 font-bold">Confirmar</span> para quem acabou de chegar.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-presenca.png', 'Lista de Presença — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-presenca.png', 'Lista de Presença — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-presenca.png" alt="Tela Lista de Presença Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Conteúdo Tela: Loja de Recompensas -->
+        <div id="content-rewards" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-renova-yellow-200 text-amber-900 px-3 py-1 rounded-full">
+              Perfil: Usuário / Estudante & Apoiadores
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Loja de Recompensas & Prêmios</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O motor de incentivo do Renova. Os pontos conquistados em mutirões e ações sustentáveis podem ser convertidos em benefícios tangíveis fornecidos pela faculdade e por empresas parceiras.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-certificate text-amber-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Certificado de Destaque (60 pts):</strong> Reconhecimento digital oficial que atesta o engajamento do aluno em ações ESG.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-burger text-amber-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Vale-lanche na Cantina (80 pts):</strong> Incentivo imediato com voucher para uso na cantina parceira do campus.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-bottle-water text-emerald-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Produtos Exclusivos (150 pts):</strong> Itens sustentáveis como garrafa térmica oficial de 500 ml com marca do projeto Renova.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-recompensas.jpg', 'Loja de Recompensas — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-recompensas.jpg', 'Loja de Recompensas — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-recompensas.jpg" alt="Tela Loja de Recompensas Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Conteúdo Tela: Perfil & Resgates -->
+        <div id="content-perfil" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-renova-blue-100 text-renova-blue-800 px-3 py-1 rounded-full">
+              Perfil: Usuário / Estudante
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Perfil Pessoal & Gestão de Resgates</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O espaço onde o aluno acompanha toda sua trajetória de impacto. Exibe saldo acumulado, resumo de conquistas, códigos de validação de prêmios e a oportunidade de solicitar promoção para se tornar Mentor.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-chart-simple text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Painel Estatístico:</strong> Contador de missões concluídas (2), postagens realizadas (1) e resgates efetuados (2).
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-qrcode text-emerald-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Códigos de Retirada:</strong> Identificadores únicos (ex: Código `RF-30977`, `RF-48213`) com badges de status (<span class="text-emerald-700 font-bold">Retirado</span> ou <span class="text-amber-700 font-bold">Disponível</span>).
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-graduation-cap text-renova-purple-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Evolução para Mentor:</strong> Botão integrado "Quero ser mentor" para alunos que desejam assumir a liderança de ações socioambientais no campus.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-perfil.png', 'Perfil do Usuário — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-perfil.png', 'Perfil do Usuário — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-perfil.png" alt="Tela Perfil do Usuário Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Conteúdo Tela: Login -->
+        <div id="content-login" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-slate-200 text-slate-800 px-3 py-1 rounded-full">
+              Módulo Autenticação
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Login Descomplicado & Acesso Demo</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              A tela de boas-vindas do aplicativo foi desenhada com identidade visual moderna e botões pensados especificamente para a banca avaliadora e usuários testarem com um clique nos modos Usuário ou Mentor.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-bolt-lightning text-amber-500 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Botões de Teste Rápido:</strong> "Entrar como Usuário" e "Entrar como Mentor" integrados diretamente na interface para demonstração imediata.
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-shield-halved text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Segurança & Recuperação:</strong> Fluxo completo de login tradicional com suporte a "Esqueci minha senha" e link direto de cadastro.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-login.png', 'Tela de Login — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-login.png', 'Tela de Login — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-login.png" alt="Tela Login Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Conteúdo Tela: Cadastro -->
+        <div id="content-cadastro" class="screen-content hidden grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+          <div class="md:col-span-7 space-y-4">
+            <span class="text-xs font-bold bg-slate-200 text-slate-800 px-3 py-1 rounded-full">
+              Módulo Autenticação
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Cadastro com Escolha de Papel</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              O onboarding intuitivo do Renova Facens permite que o recém-chegado defina imediatamente sua intenção no ecossistema: participar de missões como Usuário ou coordenar iniciativas como Mentor.
+            </p>
+            <div class="space-y-3 pt-2 text-sm text-slate-700">
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-toggle-on text-renova-blue-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Cards Seletores de Papel:</strong> Escolha visual entre "Usuário" (quero participar de missões) e "Mentor" (pedir perfil de mentor aprovado pela coordenação).
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <i class="fa-solid fa-user-shield text-renova-purple-600 mt-1"></i>
+                <div>
+                  <strong class="font-semibold text-slate-900">Acesso Administrativo:</strong> Atalho dedicado para administradores do projeto gerenciarem instâncias institucionais.
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 flex items-center gap-3">
+              <button onclick="openImageModal('assets/tela-cadastro.png', 'Tela de Cadastro — Protótipo Figma')"
+                class="inline-flex items-center gap-2 bg-renova-blue-600 hover:bg-renova-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-sm transition-all">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Ampliar Tela em Alta Resolução
+              </button>
+            </div>
+          </div>
+          <!-- Mockup Smartphone -->
+          <div class="md:col-span-5 flex justify-center">
+            <div class="w-[260px] sm:w-[280px] bg-slate-900 p-3 rounded-[44px] shadow-xl border-4 border-slate-800 cursor-pointer group"
+              onclick="openImageModal('assets/tela-cadastro.png', 'Tela de Cadastro — Protótipo Figma')">
+              <div class="w-20 h-4 bg-slate-800 rounded-full mx-auto mb-2 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-slate-950 mr-1.5"></div>
+                <div class="w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+              </div>
+              <div class="rounded-[32px] overflow-hidden border border-slate-800 relative">
+                <img src="assets/tela-cadastro.png" alt="Tela Cadastro Renova" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-slate-950/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Ver Tela</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Botão para o Figma Prototype completo -->
+      <div class="mt-10 text-center">
+        <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-7 py-3.5 rounded-2xl shadow-md transition-all hover:scale-105 active:scale-95">
+          <i class="fa-brands fa-figma text-renova-purple-400 text-lg"></i>
+          <span>Explorar Todas as Telas no Protótipo do Figma</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 ml-1"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: MERCADO, ALCANCE & FUTURO
+  ======================================================== -->
+  <section class="py-20 bg-white border-t border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+        <!-- Esquerda: Potencial de Expansão -->
+        <div class="lg:col-span-6 space-y-6">
+          <span
+            class="text-xs font-extrabold uppercase tracking-widest text-renova-blue-600 bg-renova-blue-50 px-3 py-1 rounded-full border border-renova-blue-200">
+            Escalabilidade
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            De Sorocaba para todo o estado de SP
+          </h2>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Iniciamos na UNIFACENS atendendo uma comunidade ativa de cerca de <strong>4 mil estudantes</strong>. Nossa
+            arquitetura foi projetada para expandir facilmente para outras faculdades privadas de São Paulo, alcançando
+            um universo potencial de mais de <strong>1,5 milhão de universitários</strong>.
+          </p>
+
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="bg-renova-beige-100/60 p-4 rounded-2xl border border-renova-beige-300">
+              <p class="text-2xl font-black text-renova-blue-700">4.000</p>
+              <p class="text-xs font-semibold text-slate-600 mt-1">Fase 1: Alunos Facens</p>
+            </div>
+            <div class="bg-renova-purple-50 p-4 rounded-2xl border border-renova-purple-200">
+              <p class="text-2xl font-black text-renova-purple-700">1,5 Milhão</p>
+              <p class="text-xs font-semibold text-slate-600 mt-1">Fase 2: Faculdades de SP</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direita: O Futuro do Renova (Inovação Tecnológica) -->
+        <div
+          class="lg:col-span-6 bg-gradient-to-br from-renova-beige-100 to-renova-purple-50/50 rounded-3xl p-8 border border-renova-beige-300 space-y-5">
+          <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-rocket text-renova-purple-600"></i>
+            O que vem pela frente no Renova
+          </h3>
+          <p class="text-slate-600 text-sm">
+            Novos recursos já mapeados em nosso roadmap de produto:
+          </p>
+
+          <div class="space-y-3 text-sm">
+            <div class="bg-white p-3.5 rounded-xl border border-renova-beige-200 flex items-start gap-3">
+              <i class="fa-solid fa-brain text-renova-purple-600 mt-1"></i>
+              <div>
+                <strong class="text-slate-800">IA para Triagem de Missões:</strong>
+                <p class="text-xs text-slate-500">Recomendação personalizada de ações com base nas habilidades e gostos
+                  de cada aluno.</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-3.5 rounded-xl border border-renova-beige-200 flex items-start gap-3">
+              <i class="fa-solid fa-location-crosshairs text-renova-blue-600 mt-1"></i>
+              <div>
+                <strong class="text-slate-800">Geolocalização & Alertas Inteligentes:</strong>
+                <p class="text-xs text-slate-500">Notificações quando houver uma missão voluntária acontecendo perto de
+                  você no campus.</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-3.5 rounded-xl border border-renova-beige-200 flex items-start gap-3">
+              <i class="fa-solid fa-trophy text-amber-500 mt-1"></i>
+              <div>
+                <strong class="text-slate-800">Gamificação Avançada & Troféus:</strong>
+                <p class="text-xs text-slate-500">Conquistas e rankings entre cursos da Facens (Engenharias, Saúde, TI,
+                  Arquitetura).</p>
+              </div>
+            </div>
+
+            <div class="bg-white p-3.5 rounded-xl border border-renova-beige-200 flex items-start gap-3">
+              <i class="fa-solid fa-table-columns text-emerald-600 mt-1"></i>
+              <div>
+                <strong class="text-slate-800">Painel Administrativo Web:</strong>
+                <p class="text-xs text-slate-500">Dashboard de métricas de impacto socioambiental para a LIS e para as
+                  empresas parceiras.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: NOSSA EQUIPE
+  ======================================================== -->
+  <section id="equipe" class="py-20 bg-renova-beige-50 border-t border-renova-beige-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-3xl mx-auto space-y-4">
+        <span
+          class="text-xs font-extrabold uppercase tracking-widest text-renova-blue-600 bg-renova-blue-50 px-3 py-1 rounded-full border border-renova-blue-200">
+          Quem Faz Acontecer
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+          Equipe do Projeto
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          Estudantes comprometidos em transformar boas intenções em impacto concreto na comunidade Facens.
+        </p>
+      </div>
+
+      <!-- Grid da Equipe -->
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Naiara Fioravanti (Líder) -->
+        <div
+          class="bg-white rounded-2xl p-6 border-2 border-renova-blue-300 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-renova-blue-600 to-renova-purple-600 text-white flex items-center justify-center font-bold text-lg shadow-sm">
+            NF
+          </div>
+          <div>
+            <span
+              class="text-[10px] font-extrabold uppercase tracking-wider text-renova-blue-700 bg-renova-blue-100 px-2 py-0.5 rounded-md">
+              Líder do Projeto
+            </span>
+            <h3 class="text-base font-bold text-slate-900 mt-1">Naiara Fioravanti</h3>
+            <p class="text-xs text-slate-500">Gestão & Estratégia de Produto</p>
+          </div>
+        </div>
+
+        <!-- Caio Kenzo Grigoleto -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-renova-blue-100 text-renova-blue-700 flex items-center justify-center font-bold text-lg">
+            CK
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Caio Kenzo Grigoleto</h3>
+            <p class="text-xs text-slate-500">Desenvolvimento & Produto</p>
+          </div>
+        </div>
+
+        <!-- Enzo Valentim Garcia -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-renova-purple-100 text-renova-purple-700 flex items-center justify-center font-bold text-lg">
+            EV
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Enzo Valentim Garcia</h3>
+            <p class="text-xs text-slate-500">Desenvolvimento & Produto</p>
+          </div>
+        </div>
+
+        <!-- Henrique Nóbrega -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-renova-yellow-100 text-amber-800 flex items-center justify-center font-bold text-lg">
+            HN
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Henrique Nóbrega</h3>
+            <p class="text-xs text-slate-500">Desenvolvimento & Produto</p>
+          </div>
+        </div>
+
+        <!-- Luis Filipe Gonçalves Cintra -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-renova-blue-100 text-renova-blue-700 flex items-center justify-center font-bold text-lg">
+            LF
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Luis Filipe G. Cintra</h3>
+            <p class="text-xs text-slate-500">Desenvolvimento & Produto</p>
+          </div>
+        </div>
+
+        <!-- Victor de Moraes Leite -->
+        <div
+          class="bg-white rounded-2xl p-6 border border-renova-beige-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+          <div
+            class="w-14 h-14 rounded-2xl bg-renova-purple-100 text-renova-purple-700 flex items-center justify-center font-bold text-lg">
+            VM
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Victor de Moraes Leite</h3>
+            <p class="text-xs text-slate-500">Desenvolvimento & Produto</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Orientador em Destaque -->
+      <div
+        class="mt-8 max-w-xl mx-auto bg-white rounded-2xl p-5 border border-renova-beige-300 shadow-sm flex items-center justify-center gap-4 text-center sm:text-left">
+        <div
+          class="w-12 h-12 rounded-xl bg-slate-900 text-renova-yellow-300 flex items-center justify-center text-xl font-bold">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <span class="text-[11px] font-bold text-renova-purple-700 uppercase tracking-wider">Orientação
+            Acadêmica</span>
+          <h4 class="text-base font-extrabold text-slate-900">Prof. Evandro Veronez</h4>
+          <p class="text-xs text-slate-500">Centro Universitário Facens (UNIFACENS)</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SEÇÃO: PROTÓTIPO NO FIGMA (CTA FINAL)
+  ======================================================== -->
+  <section class="py-20 bg-gradient-to-br from-renova-blue-700 via-renova-purple-700 to-renova-blue-800 text-white relative overflow-hidden">
+
+    <!-- Efeitos de iluminação -->
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-renova-purple-400/20 rounded-full blur-3xl pointer-events-none">
+    </div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-renova-blue-400/20 rounded-full blur-3xl pointer-events-none">
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+
+      <span
+        class="text-xs font-bold uppercase tracking-widest text-renova-yellow-300 bg-white/10 px-3.5 py-1.5 rounded-full border border-white/20">
+        Design & Interface
+      </span>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold mt-6 tracking-tight leading-tight">
+        Conheça o protótipo completo no Figma
+      </h2>
+
+      <p class="text-blue-100 text-base sm:text-lg max-w-2xl mx-auto mt-4 leading-relaxed">
+        Acesse todas as telas, componentes e fluxos de navegação desenhados para o aplicativo Renova Facens.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+          target="_blank" rel="noopener noreferrer"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white text-renova-blue-700 hover:bg-renova-yellow-300 hover:text-slate-900 font-extrabold text-base px-8 py-4 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">
+          <i class="fa-brands fa-figma text-lg text-renova-purple-600"></i>
+          <span>Abrir Protótipo no Figma</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i>
+        </a>
+        <a href="#app-preview"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-6 py-4 rounded-2xl border border-white/20 backdrop-blur-sm transition-all">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <span>Ver Telas na Página</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================
+       RODAPÉ (FOOTER)
+  ======================================================== -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-800/80">
+
+        <!-- Coluna 1: Marca & Descrição -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-9 h-9 rounded-xl bg-gradient-to-tr from-renova-blue-500 to-renova-purple-500 flex items-center justify-center text-white font-bold">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+            <span class="text-xl font-extrabold text-white tracking-tight">Renova Facens</span>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            Plataforma gamificada de incentivo a ações socioambientais no Centro Universitário Facens. Criado
+            sob orientação acadêmica.
+          </p>
+          <div class="flex items-center gap-2 text-xs text-emerald-400 font-semibold">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>Comprometido com a Agenda 2030 (ODS)</span>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Navegação -->
+        <div class="md:col-span-3 space-y-3">
+          <p class="text-xs font-bold text-white uppercase tracking-wider">Navegação</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#problema" class="hover:text-renova-blue-400 transition-colors">O Desafio</a></li>
+            <li><a href="#como-funciona" class="hover:text-renova-blue-400 transition-colors">Como Funciona</a></li>
+            <li><a href="#perfis" class="hover:text-renova-blue-400 transition-colors">Estudante, Embaixador e
+                Apoiador</a></li>
+            <li><a href="#diferenciais" class="hover:text-renova-blue-400 transition-colors">Diferenciais</a></li>
+            <li><a href="#app-preview" class="hover:text-renova-blue-400 transition-colors">Telas do App</a></li>
+            <li><a href="#equipe" class="hover:text-renova-blue-400 transition-colors">Equipe</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3: Links de Gestão & Repositórios -->
+        <div class="md:col-span-4 space-y-3">
+          <p class="text-xs font-bold text-white uppercase tracking-wider">Acompanhamento do Projeto</p>
+          <p class="text-xs text-slate-400">Acesse nossos protótipos, repositórios e quadros de desenvolvimento:</p>
+          <div class="flex flex-wrap gap-2.5 pt-1">
+            <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-purple-400 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-all">
+              <i class="fa-brands fa-figma text-sm"></i>
+              <span>Protótipo Figma</span>
+            </a>
+            <a href="https://github.com/tARTazZ/renovafacens" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-all">
+              <i class="fa-brands fa-github text-sm"></i>
+              <span>GitHub Repositório</span>
+            </a>
+            <a href="https://trello.com/invite/b/6a94ae23d3c533c90ee60666/ATTIcbc5d902632e1a8a32853e2d021f588d95686ABA/lumen-renovafacens"
+              target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-renova-blue-400 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-all">
+              <i class="fa-brands fa-trello text-sm"></i>
+              <span>Quadro no Trello</span>
+            </a>
+          </div>
+          <div class="pt-2 text-[11px] text-slate-500">
+            Orientador: Prof. Evandro Veronez • UNIFACENS Sorocaba/SP
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rodapé Inferior -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© 2026 Renova Facens. Todos os direitos reservados.</p>
+        <p class="flex items-center gap-1">
+          Feito com <i class="fa-solid fa-heart text-rose-500"></i> pela equipe de alunos Facens
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       SCRIPTS JAVASCRIPT
+  ======================================================== -->
+  <script>
+    // Menu Mobile
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Fechar menu mobile ao clicar em um link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Troca de Telas no Showcase do App
+    function changeScreen(screenType) {
+      // Esconder todos os conteúdos
+      document.querySelectorAll('.screen-content').forEach(content => {
+        content.classList.add('hidden');
+      });
+      // Resetar estilo de botões
+      document.querySelectorAll('.screen-tab').forEach(btn => {
+        btn.classList.remove('bg-renova-blue-600', 'text-white', 'shadow-md');
+        btn.classList.add('bg-renova-beige-100', 'text-slate-700');
+      });
+
+      // Ativar a tela selecionada
+      const targetContent = document.getElementById(`content-${screenType}`);
+      const targetTab = document.getElementById(`tab-${screenType}`);
+
+      if (targetContent) targetContent.classList.remove('hidden');
+      if (targetTab) {
+        targetTab.classList.remove('bg-renova-beige-100', 'text-slate-700');
+        targetTab.classList.add('bg-renova-blue-600', 'text-white', 'shadow-md');
+      }
+    }
+
+    // Telas do Hero Phone Interativo
+    const heroScreens = {
+      feed: {
+        src: 'assets/tela-feed.jpg',
+        label: 'Feed de Impacto'
+      },
+      missoes: {
+        src: 'assets/tela-missoes.jpg',
+        label: 'Catálogo de Missões'
+      },
+      mentor: {
+        src: 'assets/tela-painel-mentor.jpg',
+        label: 'Painel do Mentor'
+      },
+      recompensas: {
+        src: 'assets/tela-recompensas.jpg',
+        label: 'Loja de Recompensas'
+      }
+    };
+
+    function setHeroScreen(type) {
+      const data = heroScreens[type];
+      if (!data) return;
+
+      const phoneImg = document.getElementById('heroPhoneImg');
+      const label = document.getElementById('heroScreenLabel');
+
+      if (phoneImg) {
+        phoneImg.style.opacity = '0.3';
+        setTimeout(() => {
+          phoneImg.src = data.src;
+          if (label) label.innerText = data.label;
+          phoneImg.style.opacity = '1';
+        }, 120);
+      }
+
+      document.querySelectorAll('.hero-screen-btn').forEach(btn => {
+        btn.classList.remove('bg-renova-blue-600', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-600');
+      });
+
+      const activeBtn = document.getElementById(`hero-btn-${type}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-600');
+        activeBtn.classList.add('bg-renova-blue-600', 'text-white', 'shadow-sm');
+      }
+    }
+
+    // Modal / Lightbox de Imagem das Telas do Figma
+    function openImageModal(imgSrc, caption) {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImage');
+      const modalCap = document.getElementById('modalCaption');
+
+      if (!modal || !modalImg) return;
+
+      modalImg.src = imgSrc;
+      if (modalCap) modalCap.innerText = caption || 'Protótipo Figma — Renova Facens';
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('imageModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Fechar ao teclar ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeImageModal();
+    });
+  </script>
+
+  <!-- Modal Lightbox para Ampliar Telas em Alta Resolução -->
+  <div id="imageModal"
+    class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-4 transition-all"
+    onclick="if(event.target === this) closeImageModal()">
+    <div class="relative max-w-sm sm:max-w-md w-full bg-slate-900 rounded-[36px] p-4 sm:p-5 border border-slate-700 shadow-2xl">
+      <button onclick="closeImageModal()" aria-label="Fechar"
+        class="absolute -top-3 -right-3 w-10 h-10 bg-white text-slate-800 rounded-full flex items-center justify-center font-bold shadow-xl hover:scale-110 active:scale-95 transition-all focus:outline-none">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+      <div class="flex items-center justify-between pb-3 px-2 border-b border-slate-800">
+        <div class="flex items-center gap-2">
+          <i class="fa-brands fa-figma text-renova-purple-400"></i>
+          <span class="text-white text-xs sm:text-sm font-bold truncate max-w-[240px]" id="modalCaption">Protótipo Figma Oficial</span>
+        </div>
+        <span class="text-[10px] font-bold bg-renova-blue-500/20 text-renova-blue-300 px-2 py-0.5 rounded-full border border-renova-blue-400/30 whitespace-nowrap">
+          Mobile App
+        </span>
+      </div>
+      <div class="overflow-y-auto max-h-[75vh] mt-3 rounded-2xl bg-slate-950 border border-slate-800 flex justify-center p-1">
+        <img id="modalImage" src="" alt="Tela Figma Ampliada" class="w-full h-auto object-contain rounded-xl">
+      </div>
+      <div class="mt-3 text-center">
+        <a href="https://www.figma.com/design/3ciCpi6GBY8MXYly9Jj7Ig/Renova-%E2%80%94-Prot%C3%B3tipo?node-id=0-1&t=0euRvql7WyOrs9oN-1"
+          target="_blank" rel="noopener noreferrer"
+          class="text-xs text-renova-purple-300 hover:text-white font-medium inline-flex items-center gap-1.5 transition-colors">
+          <span>Abrir projeto interativo no Figma</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
